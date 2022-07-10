@@ -30,9 +30,9 @@ def get_orders():
         return jsonify(get_all(Order))
     elif request.method == "POST":
         if isinstance(request.json, list):
-            insert_data_universal(User, request.json)
+            insert_data_universal(Order, request.json)
         elif isinstance(request.json, dict):
-            insert_data_universal(User, [request.json])
+            insert_data_universal(Order, [request.json])
         else:
             print("Неподходящий формат данных")
 
@@ -45,9 +45,9 @@ def get_offers():
         return jsonify(get_all(Offer))
     elif request.method == "POST":
         if isinstance(request.json, list):
-            insert_data_universal(User, request.json)
+            insert_data_universal(Offer, request.json)
         elif isinstance(request.json, dict):
-            insert_data_universal(User, [request.json])
+            insert_data_universal(Offer, [request.json])
         else:
             print("Неподходящий формат данных")
 
