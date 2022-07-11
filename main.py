@@ -57,7 +57,7 @@ def get_offers():
 @app.route("/users/<int:user_id>", methods=["GET", "PUT", 'DELETE'])
 def get_user_by_id(user_id):
     if request.method == "GET":
-        data = get_all_by_id(User, user_id)
+        data = get_all_by_id(User, user_id)  # Получаем в переменную data всех пользователей по id
         return jsonify(data)
 
     elif request.method == "PUT":
@@ -72,7 +72,7 @@ def get_user_by_id(user_id):
 @app.route("/orders/<int:user_id>", methods=["GET", "PUT", 'DELETE'])
 def get_order_by_id(user_id):
     if request.method == "GET":
-        data = get_all_by_id(Order, user_id)
+        data = get_all_by_id(Order, user_id)   # Получаем в переменную data все заказы по id
         return jsonify(data)
 
     elif request.method == "PUT":
@@ -87,7 +87,7 @@ def get_order_by_id(user_id):
 @app.route("/offers/<int:user_id>", methods=["GET", "PUT", 'DELETE'])
 def get_offer_by_id(user_id):
     if request.method == "GET":
-        data = get_all_by_id(Offer, user_id)
+        data = get_all_by_id(Offer, user_id)   # Получаем в переменную data все предложения по id
         return jsonify(data)
 
     elif request.method == "PUT":

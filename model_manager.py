@@ -3,6 +3,7 @@ from sqlalchemy import Column, Integer, String
 
 
 class User(db.Model):
+    """Модель для создания БД пользователей"""
     __tablename__ = "user"
 
     id = Column(Integer, primary_key=True)
@@ -14,6 +15,7 @@ class User(db.Model):
     phone = Column(Integer)
 
     def to_dict(self):
+        """Оборачиваем данные пользователя в словарь"""
         return {
             "id": self.id,
             "first_name": self.first_name,
@@ -26,6 +28,7 @@ class User(db.Model):
 
 
 class Offer(db.Model):
+    """Модель для создания БД предложений"""
     __tablename__ = "offer"
 
     id = Column(Integer, primary_key=True)
@@ -33,6 +36,7 @@ class Offer(db.Model):
     executor_id = Column(Integer, db.ForeignKey("user.id"))
 
     def to_dict(self):
+        """Оборачиваем данные предложения в словарь"""
         return {
             "id": self.id,
             "order_id": self.order_id,
@@ -41,6 +45,7 @@ class Offer(db.Model):
 
 
 class Order(db.Model):
+    """Модель для создания БД заказов"""
     __tablename__ = "order"
 
     id = Column(Integer, primary_key=True)
@@ -54,6 +59,7 @@ class Order(db.Model):
     executor_id = Column(Integer, db.ForeignKey('user.id'))
 
     def to_dict(self):
+        """Оборачиваем данные заказа в словарь"""
         return {
             "id": self.id,
             "name": self.name,
